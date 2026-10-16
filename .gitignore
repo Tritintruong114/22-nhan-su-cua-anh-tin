@@ -1,0 +1,14 @@
+# Credentials and local runtime state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*token*
+*secret*
+credentials/
+secrets/
+node_modules/
+dist/
+.next/
+coverage/
