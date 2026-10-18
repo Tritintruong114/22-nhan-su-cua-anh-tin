@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "x-trends": {
+      "version": "1.2.1",
+      "installedAt": 1781863793506,
+      "registry": "https://clawhub.ai"
+    },
+    "social-media-content-calendar": {
+      "version": "1.0.0",
+      "installedAt": 1781863797596,
+      "registry": "https://clawhub.ai"
+    },
+    "xpoz-social-search": {
+      "version": "1.5.0",
+      "installedAt": 1781863800979,
+      "registry": "https://clawhub.ai"
+    },
+    "xpoz-setup": {
+      "version": "1.2.0",
+      "installedAt": 1781864143431,
+      "registry": "https://clawhub.ai"
+    }
+  }
+}

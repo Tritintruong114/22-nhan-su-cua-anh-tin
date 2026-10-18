@@ -1,14 +1,34 @@
-# Credentials and local runtime state
+# Git internals / nested repositories
+.git/
+**/.git/
+
+# Credentials, keys, and local secrets
 .env
 .env.*
 !.env.example
 *.pem
 *.key
+*.p12
+*.pfx
+*.crt
+*.cer
 *token*
 *secret*
+*credential*
 credentials/
 secrets/
+
+# Runtime and package/build artifacts
+tmp/
+**/tmp/
 node_modules/
+**/node_modules/
 dist/
+**/dist/
 .next/
+**/.next/
 coverage/
+**/coverage/
+
+# The snapshot repository itself (when copying workspace)
+22-nhan-su-cua-anh-tin/

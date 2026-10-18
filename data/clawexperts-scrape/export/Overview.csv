@@ -1,0 +1,40 @@
+Field,Value
+Brand,ClawExperts
+Source URL,https://clawexperts.com/
+Captured at UTC,2026-08-17T10:28:38.716Z
+Legal entity,PROMER PTE. LTD.
+Address,"68 CIRCULAR ROAD, #02-01, SINGAPORE 049422"
+Contact email,team@clawexperts.com
+Positioning EN,"Deploy OpenClaw on cloud without setup. Managed infrastructure, deployment, and maintenance for 24/7 OpenClaw agents."
+Positioning VI,"Triển khai OpenClaw trên cloud không cần setup. Hạ tầng, triển khai và bảo trì được quản lý để agent chạy 24/7."
+Core claims EN,"Get OpenClaw live on Cloud in 2 minutes
+Zero setup
+Always on
+Your agent runs while you sleep"
+Stats EN,"170+ app integrations
+60,000+ ready-made skills
+Multiple AI providers
+Free daily credits"
+Social links,"https://www.facebook.com/clawxperts/
+https://www.linkedin.com/company/clawexperts/"
+Disclaimer EN,"ClawExperts.com is an independent platform, not affiliated with OpenClaw or Molty. Runs on your private cloud, no setup required."
+Disclaimer VI,"ClawExperts.com là nền tảng độc lập, không thuộc OpenClaw hay Molty. Chạy trên cloud riêng của bạn, không cần setup."
+Robots/content signal,"search=yes, ai-train=no, use=reference"
+Intended use,"Private reference/RAG knowledge base for an agent, not foundation-model training."
+Pricing notes EN,"No setup
+No API key required
+Free AI tokens included"
+Pricing notes VI,"Không cần setup
+Không cần API key
+Có sẵn AI tokens miễn phí"
+Payment trust EN,"Guaranteed safe & secure checkout
+Stripe
+Unconditional refund if not satisfied
+No setup costs. Cancel anytime."
+Payment trust VI,"Thanh toán an toàn & bảo mật
+Stripe
+Hoàn tiền không điều kiện nếu không hài lòng
+Không phí setup. Có thể huỷ bất cứ lúc nào."
+Use case count,88
+Blog post count,6
+RAG/reference chunks,107

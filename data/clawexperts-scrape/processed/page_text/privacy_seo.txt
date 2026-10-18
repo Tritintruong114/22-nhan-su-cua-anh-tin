@@ -1,0 +1,97 @@
+Privacy Policy — SEO Agent - ClawExperts ClawExperts - Deploy OpenClaw on Cloud
+ClawExperts
+Product
+Instant Deploy
+AI models
+Connector
+Integration
+Skills
+Expert Assist
+How it works
+Pricing
+Use cases
+Blog
+EN
+English
+Tiếng Việt
+Get started
+Privacy Policy — SEO Agent
+A supplement to the general ClawExperts Privacy Policy.
+Last updated: 14 July 2026
+Applies to: the SEO Agent (ClawExpert) module on the ClawExperts platform.
+0. SCOPE OF THIS DOCUMENT
+This supplement adds to, and does not replace, the general ClawExperts Privacy Policy (available at
+https://clawexperts.com/privacy
+). The general policy still governs your account, billing, system logs, and other general data.
+This document describes specifically how SEO Agent handles data when you connect external services: Google Search Console (GSC) and WordPress . Connecting these services is optional and can be done later; SEO Agent accesses them only when you actively grant permission.
+1. GOOGLE SEARCH CONSOLE (GSC) CONNECTION
+When you grant permission, SEO Agent connects to your Google Search Console account via Google OAuth .
+Access scope: read-only ( webmasters.readonly ). SEO Agent does not write, modify, or delete any data in your Search Console account.
+Data we read from GSC:
+URLs of pages on your website
+Search queries (the terms users searched to reach your pages)
+Impressions, clicks, and CTR
+Average position
+Purpose:
+display your website's performance on the dashboard
+SEO analysis and content planning
+performance decay detection over time
+2. USE OF DATA RECEIVED FROM GOOGLE APIs (LIMITED USE)
+ClawExpert's use and transfer to any other app of information received from Google APIs will adhere to the
+Google API Services User Data Policy
+, including the Limited Use requirements.
+Specifically, Google user data (including GSC data):
+is used only to provide and improve user-facing features within SEO Agent
+is not sold or transferred to third parties for advertising purposes
+is not used for advertising of any kind
+is not used to train generalized AI models
+is not read by humans, except: (a) with your consent for a specific purpose, (b) where necessary for security (e.g. investigating abuse), or (c) where required by law
+3. WORDPRESS CONNECTION
+When you grant permission, SEO Agent connects to your WordPress website (via OAuth or Application Passwords).
+publish blog posts (draft / schedule / publish) to WordPress
+read page content to support audits and technical SEO checks
+Data involved: connection credentials, blog content you create within SEO Agent, and page data read for analysis. SEO Agent performs write actions (publishing) only after you confirm — it does not auto-publish before approval.
+4. HISTORICAL SNAPSHOTS & RETENTION
+To detect performance decay honestly, SEO Agent stores periodic snapshots of your GSC performance data (impressions, clicks, and position per URL/query) over time. This is a technical prerequisite: a decline cannot be detected from a single data pull.
+Retention period: GSC snapshot data is retained for 13 months , or until you disconnect or request deletion, whichever comes first. Thirteen months is the minimum needed for year-over-year comparison — which distinguishes genuine decay from seasonal fluctuation — and we do not retain it longer than necessary for that purpose.
+Our actual system behavior always matches what is stated in this document.
+5. DATA SHARING & THIRD PARTIES
+We do not sell and do not share your Google user data with third parties for their own purposes. Data is processed only by infrastructure providers necessary to operate the service (sub-processors), and only to that extent:
+cloud infrastructure / storage: [SPECIFY: e.g. AWS / GCP]
+keyword data service: [SPECIFY: DataForSEO / SEMrush] — note: only seed keywords are sent for lookup; your Google user data is NOT sent
+Data may also be shared in response to a valid legal request.
+6. DISCONNECTING & REVOKING ACCESS
+You may revoke access at any time:
+disconnect GSC / WordPress directly in Settings → Connections in SEO Agent, or
+revoke the app's access in your Google Account security settings (
+https://myaccount.google.com/permissions
+)
+After disconnecting, SEO Agent stops accessing new data from that service.
+7. DATA DELETION
+You may request deletion of your data (including stored GSC snapshots) at any time by disconnecting and emailing
+team@clawexperts.com
+. We will delete the relevant data following the process set out in the general policy.
+8. CHANGES
+This document may be updated over time; the updated version takes effect upon posting.
+9. CONTACT
+Email:
+Website:
+https://clawexperts.com
+General policy:
+YOUR 24/7 ASSISTANT IS READY.
+Platform
+Cloud vs Local
+Legal
+Terms of use
+Privacy policy
+Refund policy
+Payment policy
+ClawExperts.com is an independent platform, not affiliated with OpenClaw or Molty. Runs on your private cloud, no setup required.
+PROMER PTE. LTD.
+68 CIRCULAR ROAD, #02-01, SINGAPORE 049422
+© 2026 CLAWEXPERTS. ALL RIGHTS RESERVED.
+VI
+Light
+Contact us
+Need help or have questions? We’re here.
+We usually reply within 24 hours.

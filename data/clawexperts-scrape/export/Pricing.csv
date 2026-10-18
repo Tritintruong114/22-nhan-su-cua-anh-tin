@@ -1,0 +1,61 @@
+plan_id,name,launch_offer,highlighted,price_usd,original_price_usd,price_vnd,original_price_vnd,period_en,period_vi,vcpu,ram_gb,ssd_gb,description_en,description_vi,includes_en,includes_vi,best_for_en,best_for_vi,cta_en,cta_vi,source_url
+free,FREE,false,false,Free,,Miễn phí,,,,1,4,1,"Try OpenClaw with a real instance, no card needed","Dùng thử OpenClaw với instance thật, không cần thẻ","Instance ready on signup
+Full OpenClaw access
+Free AI tokens
+Sleeps after 48h idle
+Reclaimed after 96h idle
+Community support","Có instance ngay khi đăng ký
+Truy cập đầy đủ OpenClaw
+Có sẵn AI tokens miễn phí
+Tự ngủ sau 48 giờ
+Bị thu hồi sau 96 giờ
+Hỗ trợ từ cộng đồng","Trying out OpenClaw
+Building a first agent flow
+1-2 concurrent tasks","Dùng thử OpenClaw
+Thử build agent flow đầu tiên
+1-2 tác vụ cùng lúc",Use Free,Dùng gói Free,https://clawexperts.com/#pricing
+starter,STARTER,true,false,$4,$9,99.000₫,225.000₫,/month,/tháng,2,4,5,For getting started with AI automation,Dành cho người mới bắt đầu với AI automation,"Full OpenClaw access
+Free AI tokens
+No API key needed
+Runs 24/7
+Connect 100+ apps
+Community support","Truy cập đầy đủ OpenClaw
+Có sẵn AI tokens miễn phí
+Không cần API key
+Chạy 24/7
+Kết nối 100+ ứng dụng
+Hỗ trợ từ cộng đồng","Personal workflows
+AI beginners
+1-2 lightweight agents","Workflow cá nhân
+Người mới dùng AI
+1-2 agents nhẹ",Get started,Bắt đầu ngay,https://clawexperts.com/#pricing
+daily,DAILY,true,true,$9,$19,249.000₫,475.000₫,/month,/tháng,4,8,10,For people using AI and automation every day,Dành cho người dùng AI và automation mỗi ngày,"Includes all Starter features
+Faster, stable execution
+Parallel workflows
+Better with connected apps
+Better for daily AI workloads
+AI specialist support","Mọi tính năng gói Starter
+Chạy nhanh và ổn định hơn
+Workflow song song
+Hoạt động tốt hơn với nhiều tools
+Tối ưu cho nhu cầu sử dụng hằng ngày
+Hỗ trợ từ chuyên gia AI","Daily automation
+Multi-app workflows
+3-5 active workflows","Tự động hoá hằng ngày
+Workflow kết nối nhiều ứng dụng
+3-5 workflows",Automate more,Tăng tốc ngay,https://clawexperts.com/#pricing
+scale,SCALE,true,false,$19,$39,499.000₫,975.000₫,/month,/tháng,8,16,40,For advanced workflows and heavy automation,Dành cho workflow nâng cao và khối lượng automation lớn,"Includes all Daily features
+More simultaneous agents
+Stable under heavy workloads
+Long-running workflows
+Higher runtime capacity
+Priority 1:1 AI specialist support","Mọi tính năng gói Daily
+Chạy nhiều agents đồng thời hơn
+Ổn định với workload lớn
+Phù hợp cho workflow chạy dài
+Năng lực xử lý cao hơn
+Hỗ trợ ưu tiên 1:1 từ chuyên gia AI","Teams
+Production workflows
+Heavy automation","Team
+Workflow vận hành thực tế
+Khối lượng automation lớn",Run at scale,Mở rộng workflow,https://clawexperts.com/#pricing

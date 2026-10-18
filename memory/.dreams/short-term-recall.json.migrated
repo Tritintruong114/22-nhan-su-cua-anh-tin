@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-11T02:17:54.185Z",
+  "entries": {
+    "memory:memory/2026-05-20.md:1:1": {
+      "key": "memory:memory/2026-05-20.md:1:1",
+      "path": "memory/2026-05-20.md",
+      "startLine": 1,
+      "endLine": 1,
+      "source": "memory",
+      "snippet": "- 2026-05-20: Sử dụng Facebook fanpage \"Học cùng Bruno\" (ID: 585775954614144) để đăng bài về thói quen học tập. Post ID: 585775954614144_122181932486786083. Fanpage thuộc danh mục Trang web giáo dục, có quyền quản lý đầy đủ.",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.2717675552423056,
+      "maxScore": 0.6358839494553185,
+      "firstRecalledAt": "2026-06-11T01:44:11.740Z",
+      "lastRecalledAt": "2026-06-11T02:17:54.185Z",
+      "queryHashes": [
+        "d334e24e9529",
+        "73d6d6ad2f68"
+      ],
+      "recallDays": [
+        "2026-06-11"
+      ],
+      "conceptTags": [
+        "dụng",
+        "facebook",
+        "fanpage",
+        "học",
+        "cùng",
+        "bruno",
+        "đăng",
+        "bài"
+      ]
+    }
+  }
+}

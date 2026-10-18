@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Use-case Factory Ideal Pipeline Swimlane</title>
+  <style>
+    :root {
+      --ink: #18212f;
+      --muted: #5c6677;
+      --line: #cfd7e6;
+      --bg: #f6f8fb;
+      --human: #fff3d7;
+      --human-line: #d6a742;
+      --agent: #e8f3ff;
+      --agent-line: #4d8ed8;
+      --artifact: #ebf7ef;
+      --artifact-line: #52a36b;
+      --risk: #fdebed;
+      --risk-line: #c65a69;
+      --core: #242f43;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      overflow: hidden;
+    }
+    .frame {
+      width: 1600px;
+      height: 1200px;
+      margin: 0;
+      padding: 34px 42px;
+      background: #f6f8fb;
+    }
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    svg { width: 100%; height: 990px; display: block; margin-top: 22px; }
+    .lane-label {
+      font-weight: 800;
+      font-size: 20px;
+      fill: var(--ink);
+    }
+    .lane-note {
+      font-size: 14px;
+      fill: var(--muted);
+    }
+    .step-title {
+      font-weight: 800;
+      font-size: 15px;
+      fill: var(--ink);
+    }
+    .step-text {
+      font-size: 13px;
+      fill: var(--muted);
+    }
+    .gate-text {
+      font-size: 13px;
+      font-weight: 700;
+      fill: #823341;
+    }
+    .small {
+      font-size: 12px;
+      fill: var(--muted);
+    }
+    .section-title {
+      font-weight: 850;
+      font-size: 22px;
+      fill: var(--ink);
+    }
+    .core-text {
+      font-weight: 850;
+      font-size: 19px;
+      fill: #fff;
+    }
+    .core-sub {
+      font-size: 13px;
+      fill: #d8dfec;
+    }
+    .layer-label {
+      font-weight: 800;
+      font-size: 17px;
+      fill: var(--ink);
+    }
+    .layer-text {
+      font-size: 13px;
+      fill: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <h1>Use-case Factory: ideal pipeline with human approval gates</h1>
+    <div class="subtitle">Agent làm phần nặng: research, model nghiệp vụ, spec, prototype, navigator. Human giữ quyền duyệt: direction, verdict, autonomy, guardrails, v0 scope, go/no-go.</div>
+
+    <svg viewBox="0 0 1516 990" role="img" aria-label="Swimlane diagram for ideal Use-case Factory pipeline">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#738094"></path>
+        </marker>
+        <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+          <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#132238" flood-opacity="0.12"/>
+        </filter>
+      </defs>
+
+      <!-- swimlane background -->
+      <rect x="0" y="0" width="1516" height="520" rx="18" fill="#ffffff" stroke="#d9e1ee"/>
+      <rect x="0" y="0" width="170" height="520" rx="18" fill="#eef2f8"/>
+      <line x1="170" y1="0" x2="170" y2="520" stroke="#d9e1ee"/>
+      <line x1="0" y1="145" x2="1516" y2="145" stroke="#d9e1ee"/>
+      <line x1="0" y1="320" x2="1516" y2="320" stroke="#d9e1ee"/>
+
+      <text x="26" y="78" class="lane-label">Human</text>
+      <text x="26" y="102" class="lane-note">duyệt rủi ro</text>
+      <text x="26" y="225" class="lane-label">Agent</text>
+      <text x="26" y="249" class="lane-note">làm việc nặng</text>
+      <text x="26" y="398" class="lane-label">Artifact</text>
+      <text x="26" y="422" class="lane-note">output đọc được</text>
+
+      <!-- column guide labels -->
+      <g opacity="0.18">
+        <line x1="332" y1="0" x2="332" y2="520" stroke="#8b98aa"/>
+        <line x1="493" y1="0" x2="493" y2="520" stroke="#8b98aa"/>
+        <line x1="654" y1="0" x2="654" y2="520" stroke="#8b98aa"/>
+        <line x1="815" y1="0" x2="815" y2="520" stroke="#8b98aa"/>
+        <line x1="976" y1="0" x2="976" y2="520" stroke="#8b98aa"/>
+        <line x1="1137" y1="0" x2="1137" y2="520" stroke="#8b98aa"/>
+        <line x1="1298" y1="0" x2="1298" y2="520" stroke="#8b98aa"/>
+      </g>
+
+      <!-- arrows through agent lane -->
+      <path d="M 308 232 H 348" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 469 232 H 509" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 630 232 H 670" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 791 232 H 831" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 952 232 H 992" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1113 232 H 1153" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1274 232 H 1314" stroke="#738094" stroke-width="2.2" marker-end="url(#arrow)" fill="none"/>
+
+      <!-- Agent steps -->
+      <g filter="url(#shadow)">
+        <rect x="190" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="204" y="202" class="step-title">0. Seed idea</text>
+        <text x="204" y="226" class="step-text">Hỏi thiếu context</text>
+        <text x="204" y="246" class="step-text">Chuẩn hóa brief</text>
+        <text x="204" y="266" class="step-text">Lock problem/user</text>
+
+        <rect x="351" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="365" y="202" class="step-title">1. Research</text>
+        <text x="365" y="226" class="step-text">Market, JTBD</text>
+        <text x="365" y="246" class="step-text">Substitutes</text>
+        <text x="365" y="266" class="step-text">Persona, WTP</text>
+
+        <rect x="512" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="526" y="202" class="step-title">2. Decide</text>
+        <text x="526" y="226" class="step-text">Proceed / Pivot</text>
+        <text x="526" y="246" class="step-text">Narrow / Kill</text>
+        <text x="526" y="266" class="step-text">Top risk</text>
+
+        <rect x="673" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="687" y="202" class="step-title">3. Domain</text>
+        <text x="687" y="226" class="step-text">Objects, states</text>
+        <text x="687" y="246" class="step-text">Intent, policy</text>
+        <text x="687" y="266" class="step-text">Tools, memory</text>
+
+        <rect x="834" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="848" y="202" class="step-title">4. Approval</text>
+        <text x="848" y="226" class="step-text">Recommend auto</text>
+        <text x="848" y="246" class="step-text">Needs review</text>
+        <text x="848" y="266" class="step-text">Forbidden</text>
+
+        <rect x="995" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="1009" y="202" class="step-title">5. Screens</text>
+        <text x="1009" y="226" class="step-text">Project spec</text>
+        <text x="1009" y="246" class="step-text">Jobs to screens</text>
+        <text x="1009" y="266" class="step-text">Flows, states</text>
+
+        <rect x="1156" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="1170" y="202" class="step-title">6. Prototype</text>
+        <text x="1170" y="226" class="step-text">Render HTML</text>
+        <text x="1170" y="246" class="step-text">Design system</text>
+        <text x="1170" y="266" class="step-text">State viewer</text>
+
+        <rect x="1317" y="175" width="118" height="114" rx="12" fill="var(--agent)" stroke="var(--agent-line)"/>
+        <text x="1331" y="202" class="step-title">7. Navigator</text>
+        <text x="1331" y="226" class="step-text">Compress output</text>
+        <text x="1331" y="246" class="step-text">Read paths</text>
+        <text x="1331" y="266" class="step-text">Build scope</text>
+      </g>
+
+      <!-- Human approvals -->
+      <g filter="url(#shadow)">
+        <rect x="190" y="38" width="118" height="74" rx="12" fill="var(--human)" stroke="var(--human-line)"/>
+        <text x="204" y="66" class="step-title">Approve seed</text>
+        <text x="204" y="90" class="step-text">Đúng bài toán?</text>
+
+        <rect x="512" y="38" width="118" height="74" rx="12" fill="var(--risk)" stroke="var(--risk-line)"/>
+        <text x="526" y="66" class="step-title">Gate 1</text>
+        <text x="526" y="90" class="gate-text">Go / narrow / stop</text>
+
+        <rect x="834" y="38" width="118" height="74" rx="12" fill="var(--risk)" stroke="var(--risk-line)"/>
+        <text x="848" y="66" class="step-title">Gate 2</text>
+        <text x="848" y="90" class="gate-text">Autonomy & risk</text>
+
+        <rect x="995" y="38" width="118" height="74" rx="12" fill="var(--human)" stroke="var(--human-line)"/>
+        <text x="1009" y="66" class="step-title">Approve v0</text>
+        <text x="1009" y="90" class="step-text">Màn nào ship?</text>
+
+        <rect x="1156" y="38" width="118" height="74" rx="12" fill="var(--human)" stroke="var(--human-line)"/>
+        <text x="1170" y="66" class="step-title">Review UX</text>
+        <text x="1170" y="90" class="step-text">Hiểu trong 2 phút?</text>
+
+        <rect x="1317" y="38" width="118" height="74" rx="12" fill="var(--risk)" stroke="var(--risk-line)"/>
+        <text x="1331" y="66" class="step-title">Gate 3</text>
+        <text x="1331" y="90" class="gate-text">Build / validate</text>
+      </g>
+
+      <!-- vertical connectors -->
+      <path d="M 249 112 V 172" stroke="#b79a4c" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 571 172 V 115" stroke="#b85c68" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 893 172 V 115" stroke="#b85c68" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1054 172 V 115" stroke="#b79a4c" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1215 172 V 115" stroke="#b79a4c" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1376 172 V 115" stroke="#b85c68" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+      <!-- Artifacts -->
+      <g filter="url(#shadow)">
+        <rect x="190" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="204" y="392" class="step-title">brief.md</text>
+        <text x="204" y="416" class="step-text">input rõ ràng</text>
+        <text x="204" y="436" class="step-text">scope ban đầu</text>
+
+        <rect x="351" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="365" y="392" class="step-title">dossier</text>
+        <text x="365" y="416" class="step-text">evidence table</text>
+        <text x="365" y="436" class="step-text">source of truth</text>
+
+        <rect x="512" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="526" y="392" class="step-title">decision</text>
+        <text x="526" y="416" class="step-text">verdict + risk</text>
+        <text x="526" y="436" class="step-text">next direction</text>
+
+        <rect x="673" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="687" y="392" class="step-title">domain spec</text>
+        <text x="687" y="416" class="step-text">agent job</text>
+        <text x="687" y="436" class="step-text">state + policy</text>
+
+        <rect x="834" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="848" y="392" class="step-title">approval map</text>
+        <text x="848" y="416" class="step-text">auto / duyệt</text>
+        <text x="848" y="436" class="step-text">cấm + guardrails</text>
+
+        <rect x="995" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="1009" y="392" class="step-title">screen brief</text>
+        <text x="1009" y="416" class="step-text">jobs to screens</text>
+        <text x="1009" y="436" class="step-text">flows</text>
+
+        <rect x="1156" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="1170" y="392" class="step-title">prototype</text>
+        <text x="1170" y="416" class="step-text">mockups.html</text>
+        <text x="1170" y="436" class="step-text">mockups.data.js</text>
+
+        <rect x="1317" y="364" width="118" height="88" rx="12" fill="var(--artifact)" stroke="var(--artifact-line)"/>
+        <text x="1331" y="392" class="step-title">decision pack</text>
+        <text x="1331" y="416" class="step-text">00 Start here</text>
+        <text x="1331" y="436" class="step-text">01 Product map</text>
+      </g>
+
+      <!-- connectors down to artifacts -->
+      <path d="M 249 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 410 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 571 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 732 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 893 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1054 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1215 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 1376 292 V 361" stroke="#68a47a" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+
+      <!-- mental model section -->
+      <text x="0" y="585" class="section-title">Mental model: Core mạnh lên nhờ meta layers kết nối features</text>
+      <text x="0" y="613" class="small">Ví dụ Email Agent: core không phải một feature. Core là bài toán lớn nó giải quyết. Layers là năng lực làm core đáng tin, khác biệt, khó copy.</text>
+
+      <g filter="url(#shadow)">
+        <rect x="36" y="675" width="310" height="168" rx="22" fill="var(--core)"/>
+        <text x="68" y="726" class="core-text">CORE</text>
+        <text x="68" y="756" class="core-text">Agent quản lý & điều phối</text>
+        <text x="68" y="784" class="core-text">công việc qua email</text>
+        <text x="68" y="820" class="core-sub">Core = bài toán đáng thuê agent để giải</text>
+
+        <rect x="450" y="642" width="218" height="92" rx="14" fill="#ffffff" stroke="#d9e1ee"/>
+        <text x="474" y="672" class="layer-label">Quản lý</text>
+        <text x="474" y="696" class="layer-text">state, priority, queue</text>
+        <text x="474" y="716" class="layer-text">ownership, SLA</text>
+
+        <rect x="450" y="770" width="218" height="92" rx="14" fill="#ffffff" stroke="#d9e1ee"/>
+        <text x="474" y="800" class="layer-label">Điều phối</text>
+        <text x="474" y="824" class="layer-text">handoff, reminders</text>
+        <text x="474" y="844" class="layer-text">follow-through</text>
+
+        <rect x="735" y="642" width="218" height="92" rx="14" fill="#ffffff" stroke="#d9e1ee"/>
+        <text x="759" y="672" class="layer-label">Công việc</text>
+        <text x="759" y="696" class="layer-text">task, commitment</text>
+        <text x="759" y="716" class="layer-text">outcome, next action</text>
+
+        <rect x="735" y="770" width="218" height="92" rx="14" fill="#ffffff" stroke="#d9e1ee"/>
+        <text x="759" y="800" class="layer-label">Email</text>
+        <text x="759" y="824" class="layer-text">thread, sender, intent</text>
+        <text x="759" y="844" class="layer-text">reply, calendar link</text>
+
+        <rect x="1062" y="675" width="360" height="168" rx="20" fill="#ffffff" stroke="#d9e1ee"/>
+        <text x="1090" y="718" class="layer-label">Candidate analogy</text>
+        <text x="1090" y="750" class="layer-text">Core = bài toán ứng viên giải được.</text>
+        <text x="1090" y="776" class="layer-text">Layers = hard skills + soft skills</text>
+        <text x="1090" y="802" class="layer-text">làm họ giải bài toán trội hơn.</text>
+        <text x="1090" y="828" class="layer-text">Unique = các skill kết nối thành hệ.</text>
+      </g>
+
+      <!-- layer connectors -->
+      <path d="M 346 735 C 400 710, 402 690, 447 688" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 346 775 C 400 798, 402 816, 447 816" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 668 688 H 732" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 668 816 H 732" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 953 688 C 1000 700, 1018 720, 1059 734" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+      <path d="M 953 816 C 1000 804, 1018 790, 1059 784" stroke="#8b98aa" stroke-width="2.4" marker-end="url(#arrow)" fill="none"/>
+
+      <text x="454" y="913" class="small">Rule: Feature không đứng rời. Feature phải bám vào layer. Layer phải làm core mạnh hơn. Core phải giải một bài toán có giá trị.</text>
+    </svg>
+  </div>
+</body>
+</html>

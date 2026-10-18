@@ -1,0 +1,212 @@
+{
+  "source_url": "https://clawexperts.com/#pricing",
+  "captured_at_utc": "2026-08-17T10:28:38.698Z",
+  "headline_en": "Start small. Scale as you grow.",
+  "headline_vi": "Bắt đầu đơn giản. Scale theo nhu cầu.",
+  "notes_en": [
+    "No setup",
+    "No API key required",
+    "Free AI tokens included"
+  ],
+  "notes_vi": [
+    "Không cần setup",
+    "Không cần API key",
+    "Có sẵn AI tokens miễn phí"
+  ],
+  "plans": [
+    {
+      "id": "free",
+      "name": "FREE",
+      "price_usd": "Free",
+      "price_vnd": "Miễn phí",
+      "period_en": null,
+      "period_vi": null,
+      "description_en": "Try OpenClaw with a real instance, no card needed",
+      "description_vi": "Dùng thử OpenClaw với instance thật, không cần thẻ",
+      "includes_en": [
+        "Instance ready on signup",
+        "Full OpenClaw access",
+        "Free AI tokens",
+        "Sleeps after 48h idle",
+        "Reclaimed after 96h idle",
+        "Community support"
+      ],
+      "includes_vi": [
+        "Có instance ngay khi đăng ký",
+        "Truy cập đầy đủ OpenClaw",
+        "Có sẵn AI tokens miễn phí",
+        "Tự ngủ sau 48 giờ",
+        "Bị thu hồi sau 96 giờ",
+        "Hỗ trợ từ cộng đồng"
+      ],
+      "best_for_en": [
+        "Trying out OpenClaw",
+        "Building a first agent flow",
+        "1-2 concurrent tasks"
+      ],
+      "best_for_vi": [
+        "Dùng thử OpenClaw",
+        "Thử build agent flow đầu tiên",
+        "1-2 tác vụ cùng lúc"
+      ],
+      "hardware": {
+        "vcpu": 1,
+        "ram_gb": 4,
+        "ssd_gb": 1
+      },
+      "cta_en": "Use Free",
+      "cta_vi": "Dùng gói Free"
+    },
+    {
+      "id": "starter",
+      "name": "STARTER",
+      "launch_offer": true,
+      "price_usd": "$4",
+      "original_price_usd": "$9",
+      "price_vnd": "99.000₫",
+      "original_price_vnd": "225.000₫",
+      "period_en": "/month",
+      "period_vi": "/tháng",
+      "description_en": "For getting started with AI automation",
+      "description_vi": "Dành cho người mới bắt đầu với AI automation",
+      "includes_en": [
+        "Full OpenClaw access",
+        "Free AI tokens",
+        "No API key needed",
+        "Runs 24/7",
+        "Connect 100+ apps",
+        "Community support"
+      ],
+      "includes_vi": [
+        "Truy cập đầy đủ OpenClaw",
+        "Có sẵn AI tokens miễn phí",
+        "Không cần API key",
+        "Chạy 24/7",
+        "Kết nối 100+ ứng dụng",
+        "Hỗ trợ từ cộng đồng"
+      ],
+      "best_for_en": [
+        "Personal workflows",
+        "AI beginners",
+        "1-2 lightweight agents"
+      ],
+      "best_for_vi": [
+        "Workflow cá nhân",
+        "Người mới dùng AI",
+        "1-2 agents nhẹ"
+      ],
+      "hardware": {
+        "vcpu": 2,
+        "ram_gb": 4,
+        "ssd_gb": 5
+      },
+      "cta_en": "Get started",
+      "cta_vi": "Bắt đầu ngay"
+    },
+    {
+      "id": "daily",
+      "name": "DAILY",
+      "launch_offer": true,
+      "highlighted": true,
+      "price_usd": "$9",
+      "original_price_usd": "$19",
+      "price_vnd": "249.000₫",
+      "original_price_vnd": "475.000₫",
+      "period_en": "/month",
+      "period_vi": "/tháng",
+      "description_en": "For people using AI and automation every day",
+      "description_vi": "Dành cho người dùng AI và automation mỗi ngày",
+      "includes_en": [
+        "Includes all Starter features",
+        "Faster, stable execution",
+        "Parallel workflows",
+        "Better with connected apps",
+        "Better for daily AI workloads",
+        "AI specialist support"
+      ],
+      "includes_vi": [
+        "Mọi tính năng gói Starter",
+        "Chạy nhanh và ổn định hơn",
+        "Workflow song song",
+        "Hoạt động tốt hơn với nhiều tools",
+        "Tối ưu cho nhu cầu sử dụng hằng ngày",
+        "Hỗ trợ từ chuyên gia AI"
+      ],
+      "best_for_en": [
+        "Daily automation",
+        "Multi-app workflows",
+        "3-5 active workflows"
+      ],
+      "best_for_vi": [
+        "Tự động hoá hằng ngày",
+        "Workflow kết nối nhiều ứng dụng",
+        "3-5 workflows"
+      ],
+      "hardware": {
+        "vcpu": 4,
+        "ram_gb": 8,
+        "ssd_gb": 10
+      },
+      "cta_en": "Automate more",
+      "cta_vi": "Tăng tốc ngay"
+    },
+    {
+      "id": "scale",
+      "name": "SCALE",
+      "launch_offer": true,
+      "price_usd": "$19",
+      "original_price_usd": "$39",
+      "price_vnd": "499.000₫",
+      "original_price_vnd": "975.000₫",
+      "period_en": "/month",
+      "period_vi": "/tháng",
+      "description_en": "For advanced workflows and heavy automation",
+      "description_vi": "Dành cho workflow nâng cao và khối lượng automation lớn",
+      "includes_en": [
+        "Includes all Daily features",
+        "More simultaneous agents",
+        "Stable under heavy workloads",
+        "Long-running workflows",
+        "Higher runtime capacity",
+        "Priority 1:1 AI specialist support"
+      ],
+      "includes_vi": [
+        "Mọi tính năng gói Daily",
+        "Chạy nhiều agents đồng thời hơn",
+        "Ổn định với workload lớn",
+        "Phù hợp cho workflow chạy dài",
+        "Năng lực xử lý cao hơn",
+        "Hỗ trợ ưu tiên 1:1 từ chuyên gia AI"
+      ],
+      "best_for_en": [
+        "Teams",
+        "Production workflows",
+        "Heavy automation"
+      ],
+      "best_for_vi": [
+        "Team",
+        "Workflow vận hành thực tế",
+        "Khối lượng automation lớn"
+      ],
+      "hardware": {
+        "vcpu": 8,
+        "ram_gb": 16,
+        "ssd_gb": 40
+      },
+      "cta_en": "Run at scale",
+      "cta_vi": "Mở rộng workflow"
+    }
+  ],
+  "payment_trust_en": [
+    "Guaranteed safe & secure checkout",
+    "Stripe",
+    "Unconditional refund if not satisfied",
+    "No setup costs. Cancel anytime."
+  ],
+  "payment_trust_vi": [
+    "Thanh toán an toàn & bảo mật",
+    "Stripe",
+    "Hoàn tiền không điều kiện nếu không hài lòng",
+    "Không phí setup. Có thể huỷ bất cứ lúc nào."
+  ]
+}

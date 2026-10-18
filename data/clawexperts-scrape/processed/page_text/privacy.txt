@@ -1,0 +1,90 @@
+Privacy Policy - ClawExperts ClawExperts - Deploy OpenClaw on Cloud
+ClawExperts
+Product
+Instant Deploy
+AI models
+Connector
+Integration
+Skills
+Expert Assist
+How it works
+Pricing
+Use cases
+Blog
+EN
+English
+Tiếng Việt
+Get started
+Privacy Policy
+Last updated: March 31, 2026
+ClawExperts is committed to protecting your privacy.
+This policy explains how we collect, use, and safeguard your data.
+1. INFORMATION WE COLLECT
+We may collect:
+Account information
+Email address
+Registration details
+Usage data
+Actions performed on the platform
+Agent configurations
+System logs
+User-provided data
+Content, inputs, and data submitted to agents
+2. HOW WE USE DATA
+We use data to:
+operate and maintain the service
+improve system performance
+provide user support
+We do not use your data to train AI models.
+3. ISOLATED ENVIRONMENT
+Each agent runs in an isolated environment.
+This means:
+no data sharing between users
+no cross-access between agents
+4. DATA SHARING
+We do not sell or share your personal data.
+Data may only be shared:
+if required by law
+with infrastructure providers (e.g. cloud services)
+5. SECURITY
+We implement reasonable security measures:
+encrypted data transmission
+access controls
+system monitoring
+6. DATA RETENTION
+Data is stored only as long as necessary to:
+provide the service
+comply with legal obligations
+You may request data deletion at any time.
+7. YOUR RIGHTS
+You have the right to:
+access your data
+request corrections
+request deletion
+8. COOKIES
+We may use cookies to:
+maintain sessions
+improve user experience
+9. CHANGES
+This policy may be updated over time.
+10. CONTACT
+Email: team@clawexperts.com
+Website: https://clawexperts.com
+YOUR 24/7 ASSISTANT IS READY.
+Platform
+Cloud vs Local
+Legal
+Terms of use
+Privacy Policy — SEO Agent
+Refund policy
+Payment policy
+ClawExperts.com is an independent platform, not affiliated with OpenClaw or Molty. Runs on your private cloud, no setup required.
+PROMER PTE. LTD.
+68 CIRCULAR ROAD, #02-01, SINGAPORE 049422
+© 2026 CLAWEXPERTS. ALL RIGHTS RESERVED.
+VI
+Light
+Contact us
+Need help or have questions? We’re here.
+team@clawexperts.com
+We usually reply within 24 hours.

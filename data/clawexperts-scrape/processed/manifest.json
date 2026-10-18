@@ -1,0 +1,83 @@
+{
+  "source": "https://clawexperts.com/",
+  "captured_at_utc": "2026-08-17T10:28:38.716Z",
+  "robots_content_signal": "search=yes, ai-train=no, use=reference",
+  "intended_use": "Private reference/RAG knowledge base for an agent, not foundation-model training.",
+  "pages": [
+    {
+      "file": "blog.html",
+      "route": "/blog",
+      "source_url": "https://clawexperts.com/blog",
+      "text_file": "processed/page_text/blog.txt",
+      "char_count": 2160
+    },
+    {
+      "file": "home.html",
+      "route": "/",
+      "source_url": "https://clawexperts.com/",
+      "text_file": "processed/page_text/home.txt",
+      "char_count": 7589
+    },
+    {
+      "file": "payment.html",
+      "route": "/payment",
+      "source_url": "https://clawexperts.com/payment",
+      "text_file": "processed/page_text/payment.txt",
+      "char_count": 2064
+    },
+    {
+      "file": "privacy.html",
+      "route": "/privacy",
+      "source_url": "https://clawexperts.com/privacy",
+      "text_file": "processed/page_text/privacy.txt",
+      "char_count": 2125
+    },
+    {
+      "file": "privacy_seo.html",
+      "route": "/privacy/seo",
+      "source_url": "https://clawexperts.com/privacy/seo",
+      "text_file": "processed/page_text/privacy_seo.txt",
+      "char_count": 5073
+    },
+    {
+      "file": "refund.html",
+      "route": "/refund",
+      "source_url": "https://clawexperts.com/refund",
+      "text_file": "processed/page_text/refund.txt",
+      "char_count": 2466
+    },
+    {
+      "file": "terms.html",
+      "route": "/terms",
+      "source_url": "https://clawexperts.com/terms",
+      "text_file": "processed/page_text/terms.txt",
+      "char_count": 2735
+    },
+    {
+      "file": "use-cases.html",
+      "route": "/use-cases",
+      "source_url": "https://clawexperts.com/use-cases",
+      "text_file": "processed/page_text/use-cases.txt",
+      "char_count": 10311
+    }
+  ],
+  "raw_assets": [
+    "BlogPage-DERy7WTo.js",
+    "InAppDemo-BjMoRIYX.js",
+    "UseCases-BXZxgqx5.js",
+    "UseCasesPage-oy47x7V1.js",
+    "calendar-O4JyYC2S.js",
+    "index-7DzEc9-f.js",
+    "index-CKvbQeqs.css",
+    "shopping-cart-Df6xwWPD.js",
+    "useCasesData-ocwl2MzT.js"
+  ],
+  "outputs": [
+    "product.json",
+    "pricing.json",
+    "use_cases.json",
+    "blog_posts.json",
+    "knowledge_base.md",
+    "training_chunks.jsonl"
+  ]
+}

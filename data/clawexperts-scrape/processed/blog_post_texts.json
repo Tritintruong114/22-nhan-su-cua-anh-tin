@@ -1,0 +1,41 @@
+{
+  "count": 6,
+  "posts": [
+    {
+      "slug": "clawexperts-vs-hostinger-vps",
+      "source_url": "https://clawexperts.com/blog/clawexperts-vs-hostinger-vps",
+      "text_file": "processed/page_text/blog_post_clawexperts-vs-hostinger-vps.txt",
+      "char_count": 6402
+    },
+    {
+      "slug": "clawexperts-vs-myclaw",
+      "source_url": "https://clawexperts.com/blog/clawexperts-vs-myclaw",
+      "text_file": "processed/page_text/blog_post_clawexperts-vs-myclaw.txt",
+      "char_count": 5843
+    },
+    {
+      "slug": "setup-first-clawexperts-agent",
+      "source_url": "https://clawexperts.com/blog/setup-first-clawexperts-agent",
+      "text_file": "processed/page_text/blog_post_setup-first-clawexperts-agent.txt",
+      "char_count": 3854
+    },
+    {
+      "slug": "switching-from-clawbro-to-clawexperts",
+      "source_url": "https://clawexperts.com/blog/switching-from-clawbro-to-clawexperts",
+      "text_file": "processed/page_text/blog_post_switching-from-clawbro-to-clawexperts.txt",
+      "char_count": 5877
+    },
+    {
+      "slug": "top-ai-models-2026",
+      "source_url": "https://clawexperts.com/blog/top-ai-models-2026",
+      "text_file": "processed/page_text/blog_post_top-ai-models-2026.txt",
+      "char_count": 8493
+    },
+    {
+      "slug": "what-is-clawexperts",
+      "source_url": "https://clawexperts.com/blog/what-is-clawexperts",
+      "text_file": "processed/page_text/blog_post_what-is-clawexperts.txt",
+      "char_count": 4478
+    }
+  ]
+}

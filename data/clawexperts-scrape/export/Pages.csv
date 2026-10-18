@@ -1,0 +1,9 @@
+route,source_url,text_file,char_count,file
+/blog,https://clawexperts.com/blog,processed/page_text/blog.txt,2160,blog.html
+/,https://clawexperts.com/,processed/page_text/home.txt,7589,home.html
+/payment,https://clawexperts.com/payment,processed/page_text/payment.txt,2064,payment.html
+/privacy,https://clawexperts.com/privacy,processed/page_text/privacy.txt,2125,privacy.html
+/privacy/seo,https://clawexperts.com/privacy/seo,processed/page_text/privacy_seo.txt,5073,privacy_seo.html
+/refund,https://clawexperts.com/refund,processed/page_text/refund.txt,2466,refund.html
+/terms,https://clawexperts.com/terms,processed/page_text/terms.txt,2735,terms.html
+/use-cases,https://clawexperts.com/use-cases,processed/page_text/use-cases.txt,10311,use-cases.html

@@ -1,0 +1,59 @@
+{
+  "source_url": "https://clawexperts.com/",
+  "brand": "ClawExperts",
+  "legal_entity": "PROMER PTE. LTD.",
+  "address": "68 CIRCULAR ROAD, #02-01, SINGAPORE 049422",
+  "contact_email": "team@clawexperts.com",
+  "social_links": [
+    "https://www.facebook.com/clawxperts/",
+    "https://www.linkedin.com/company/clawexperts/"
+  ],
+  "positioning_en": "Deploy OpenClaw on cloud without setup. Managed infrastructure, deployment, and maintenance for 24/7 OpenClaw agents.",
+  "positioning_vi": "Triển khai OpenClaw trên cloud không cần setup. Hạ tầng, triển khai và bảo trì được quản lý để agent chạy 24/7.",
+  "core_claims_en": [
+    "Get OpenClaw live on Cloud in 2 minutes",
+    "Zero setup",
+    "Always on",
+    "Your agent runs while you sleep"
+  ],
+  "stats_en": [
+    "170+ app integrations",
+    "60,000+ ready-made skills",
+    "Multiple AI providers",
+    "Free daily credits"
+  ],
+  "nav_product_items": [
+    {
+      "id": "setup",
+      "en": "Instant Deploy",
+      "vi": "Triển khai tức thì"
+    },
+    {
+      "id": "ai-models",
+      "en": "AI models",
+      "vi": "AI models"
+    },
+    {
+      "id": "integrations",
+      "en": "Connector",
+      "vi": "Kết nối"
+    },
+    {
+      "id": "channels",
+      "en": "Integration",
+      "vi": "Ứng dụng"
+    },
+    {
+      "id": "skills",
+      "en": "Skills",
+      "vi": "Kỹ năng"
+    },
+    {
+      "id": "expert-support",
+      "en": "Expert Assist",
+      "vi": "Chuyên gia Hỗ trợ"
+    }
+  ],
+  "disclaimer_en": "ClawExperts.com is an independent platform, not affiliated with OpenClaw or Molty. Runs on your private cloud, no setup required.",
+  "disclaimer_vi": "ClawExperts.com là nền tảng độc lập, không thuộc OpenClaw hay Molty. Chạy trên cloud riêng của bạn, không cần setup."
+}
