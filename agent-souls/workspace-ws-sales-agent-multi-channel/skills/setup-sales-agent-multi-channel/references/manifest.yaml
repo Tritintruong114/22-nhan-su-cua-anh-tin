@@ -1,0 +1,74 @@
+# Machine-readable source of truth for setup-sales-agent-multi-channel.
+# The SKILL.md body iterates this file — never duplicate these values into SKILL.md.
+#
+# Keep required_env 1:1 with .env.ws-sales-agent-multi-channel.
+# FB-vertical (toc#160) adds the Facebook Messenger channel via the shared
+# meta-messenger service. Payment/catalog/Sheet + Zalo/Web creds = later slices.
+
+workspace: ws-sales-agent-multi-channel
+display_name: Trợ lý bán hàng đa kênh
+
+# 1:1 with .env.ws-sales-agent-multi-channel.
+required_env:
+  - name: OC_SALE_AGENT_MULTI_URL
+    purpose: Base URL của UC-Service ws-sales-agent-multi-channel (cùng service mint key). INJECTED bởi BE install pipeline (be#64) dưới tên OC_FB_SERVICE_URL; overlay map về tên này qua marker <<ENV:OC_FB_SERVICE_URL>> (env-alias). KHÔNG bake trong plugin. BE không inject → để trống; set chỉ để override cho local/staging dev.
+    how_to_get: Auto-inject lúc install bởi platform. Set tay (ngrok/staging URL) chỉ khi dev. Không bí mật.
+    example: https://ws-sales-agent-multi-channel.instance-staging.tryopenclaw.io
+    secret: false
+    optional: true
+
+  - name: OC_SALE_AGENT_MULTI_CUSTOMER_API_KEY
+    purpose: Bearer key per-tenant bundle gửi tới service, cô lập page của shop này. BE install pipeline auto-mint per-instance (be#64) + inject dưới tên OC_FB_CUSTOMER_API_KEY; overlay map về tên này qua marker <<ENV:OC_FB_CUSTOMER_API_KEY>> (env-alias). BE không inject → key để trống → hỏi tay fallback. End user không bao giờ nhập.
+    how_to_get: Auto-provision bởi platform lúc install (service-side POST /v1/admin/apikeys). Set tay chỉ để override cho dev.
+    example: ocfb_xxxxxxxxxxxxxxxxxxxxxx
+    secret: true
+    optional: true
+
+  # ── Web channel (service#9) — web-widget UC-Service (2-hop SSE) ──
+  - name: OC_WS_SALES_WEBWIDGET_URL
+    purpose: Base URL của web-widget UC-Service (không trailing slash). apply-overrides fill channels.web.accounts.default.serviceUrl. Để rỗng ở install thường; set chỉ để override local/staging.
+    how_to_get: Auto-inject lúc install bởi platform. Set tay (staging URL) chỉ khi dev. Không bí mật.
+    example: https://web-widget.instance-staging.tryopenclaw.io
+    secret: false
+    optional: true
+
+  - name: OC_WS_SALES_WEBWIDGET_API_KEY
+    purpose: Bearer key (ocww_...) plugin web-widget gửi tới shim — cô lập instance. BE auto-mint per-instance + inject; resolve marker <<SETUP_REQUIRED>>. End user không nhập.
+    how_to_get: Auto-provision lúc install (shim POST /v1/admin/apikeys). Set tay chỉ để override dev.
+    example: ocww_xxxxxxxxxxxxxxxxxxxxxx
+    secret: true
+    optional: true
+
+# NOTE: shop_token (ws_...) KHÔNG phải env — mint lúc chủ Bật kênh Web
+# (sales-manager channels/web/enable → shim /v1/shops) rồi persist vào
+# channels.web.accounts.default.shopToken (config runtime). Không khai ở required_env.
+
+# openclaw.json paths the setup must populate (cover mọi <<SETUP_REQUIRED>>
+# placeholder trong openclaw.ws-sales-agent-multi-channel.json — check-drift §4).
+# 2 key dưới = BE install pipeline auto-mint + inject; setup skill CHỈ hỏi tay
+# khi auto-mint fail (dev/self-host). FB pageId discovered post-OAuth, web
+# shopToken minted at enable (→ config runtime) — không khai ở đây.
+required_config:
+  - path: env.OC_SALE_AGENT_MULTI_CUSTOMER_API_KEY
+    prompt: "Bearer key per-tenant (ocfb_...) của shared meta-messenger service — thường auto-mint lúc install, chỉ nhập tay khi self-host/dev."
+    reason: Plugin FB/Zalo OA gửi key này tới service để cô lập page/OA của shop. Thiếu → kênh FB + Zalo OA chết im lặng.
+    source_env: OC_SALE_AGENT_MULTI_CUSTOMER_API_KEY
+    example: ocfb_xxxxxxxxxxxxxxxxxxxxxx
+    optional: true
+  - path: env.OC_WS_SALES_WEBWIDGET_API_KEY
+    prompt: "Bearer key (ocww_...) của web-widget shim — thường auto-mint lúc install (shim POST /v1/admin/apikeys), chỉ nhập tay khi self-host/dev."
+    reason: Kênh Web cần key này để mint shop_token + mở inbound SSE. Còn placeholder → web-widget "not configured", kênh Web chết trên MỌI instance mới (audit P1-4).
+    source_env: OC_WS_SALES_WEBWIDGET_API_KEY
+    example: ocww_xxxxxxxxxxxxxxxxxxxxxx
+    optional: true
+
+# Native channels to pair. None — the Facebook side connects through the backend
+# service OAuth (Connect Facebook on the dashboard), not an install-time channel
+# pairing flow (same model as ws-fb-sales-general).
+channels_to_pair: []
+
+# Post-setup sanity checks.
+verification:
+  - id: dashboard-shell-renders
+    description: The Agent Dashboard renders the 6-tab, 2-group shell with the Run-switch pill.
+    check: "Open the Agent Dashboard. The nav shows 6 tabs in 2 groups (Tổng quan/Hội thoại/Đơn hàng | Sản phẩm/Cửa hàng/Nhân viên AI). The Run-switch pill (Đang trực / Đã tắt) opens the giờ-trực popover."

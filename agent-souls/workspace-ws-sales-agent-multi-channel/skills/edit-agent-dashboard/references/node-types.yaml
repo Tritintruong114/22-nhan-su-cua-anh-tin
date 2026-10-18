@@ -1,0 +1,212 @@
+# Declarative UI Engine — App model grammar for manage.yaml `ui:`
+#
+# GENERATED FILE — do not edit by hand.
+# Source: @tryopenclaw/use-case-ui-kit src/schema/node-types-doc.ts
+# Regenerate: bun run gen-node-types <path>
+#
+# A use-case ships EITHER `operation_phases:` (flat, see view-types.yaml) OR
+# `ui:` (this App model — multi-screen tree of Kit components + JEXL). The App
+# model adds: screens + nav + navigate, app-level state + computed, components
+# (reusable partials), forms/overlays, and a composite palette.
+#
+# Sections:
+#   app_model    : the `ui:` top-level envelope keys
+#   node_types   : the 19-node palette (kind=container renders children, leaf=terminal)
+#   actions      : the action union referenced by on.<event> / submit / row_actions
+#   expressions  : JEXL rules (scope + whitelisted transforms)
+
+app_model:
+  meta: "{ workspace: string, version: semver } — required."
+  data: 'Map of name → { source: "plugin", route: string, params?: { k: "{{ expr }}" } }. Each becomes a reactive query; params resolve against state, so changing state refetches. Exposed TOP-LEVEL in expressions: `{{ <name>.<field> }}` (e.g. `{{ orders.items }}`), also under `data.<name>`.'
+  state: Map of name → initial value. App-level, shared across screens, mutated by `set-state`/`navigate`. Read as `{{ state.<name> }}`. `state.activeScreen` selects the active screen (defaults to the first).
+  computed: Map of name → "{{ expr }}" — named derived values, recomputed each render. Read as `{{ computed.<name> }}`.
+  components: "Map of ComponentName → { params: string[], view: <node> }. A reusable, parameterized partial. Invoke it like any node whose `type` equals the component name; the call-site `props`/`bind` supply the params, which are injected as top-level vars in the component view scope. No code, no review — pure declarative reuse. Cycles are rejected at build time."
+  nav: "Array of { screen: string, label: string, icon?: string } — the top navigation strip. Every `screen` must exist in `screens`."
+  screens: Map of screenId → root node (one App screen each). Provide EITHER `screens` (multi-screen) OR `view` (single screen), never both.
+  view: A single root node — the single-screen alternative to `screens`.
+  actions: Map of name → action (see `actions` section). Referenced by node `on.<event>`, `row_actions[].action`, `form.submit.action`, `menu.items[].action`, and action `on_success`/`on_error`.
+node_types:
+  stack:
+    kind: container
+    description: Flex stack of children in one direction. The default layout primitive.
+    props:
+      direction: vertical | horizontal (default vertical)
+      gap: sm | md | lg
+  grid:
+    kind: container
+    description: N-column grid of children.
+    props:
+      columns: integer ≥ 1 (required)
+      gap: sm | md | lg
+  box:
+    kind: container
+    description: "Padded container; set `surface: true` for a bordered card-like background."
+    props:
+      padding: none | sm | md | lg (default md)
+      gap: sm | md | lg
+      surface: boolean
+  card:
+    kind: container
+    description: Surface container with an optional title/subtitle header and footer line.
+    props:
+      title: string
+      subtitle: string
+      footer: string
+    binds:
+      title: header title (JEXL)
+  tabs:
+    kind: container
+    description: Tabbed panels. Active tab is local UI state (no app state needed).
+    props:
+      items: "[{ id, label }] (required)"
+    notes: children MUST have exactly one node per `items` entry, in the same order (one panel per tab).
+  modal:
+    kind: container
+    description: Centered overlay. Visibility is data-driven, not imperative.
+    props:
+      title: string
+    binds:
+      open: boolean — usually `{{ state.<flag> }}`
+    notes: Open/close by toggling the bound state via set-state actions. `on.close` fires an action when the user dismisses it.
+  drawer:
+    kind: container
+    description: Side panel overlay. Same visibility model as modal.
+    props:
+      title: string
+      side: left | right
+    binds:
+      open: boolean — usually `{{ state.<flag> }}`
+    notes: "`on.close` fires an action on dismiss."
+  list:
+    kind: container
+    description: Renders one row per element of a bound array, using a single child as the row template.
+    props:
+      empty: string shown when the array is empty
+    binds:
+      items: array (required) — the rows to render
+    notes: children MUST be exactly one node (the template). Each row exposes `item`, `row` (alias), and `index` in scope. Pair with a `components` invocation for rich rows.
+  text:
+    kind: leaf
+    description: A line of text. Static via `props.value` or reactive via `bind.value`.
+    props:
+      value: string
+      tone: brand | info | success | warning | neutral
+      muted: boolean
+    binds:
+      value: the text to show (JEXL)
+  heading:
+    kind: leaf
+    description: A section heading (h1–h3).
+    props:
+      text: string
+      level: 1 | 2 | 3 (default 2)
+    binds:
+      text: the heading text (JEXL)
+  button:
+    kind: leaf
+    description: A clickable button that fires an action.
+    props:
+      label: string (required)
+      variant: default | outline | ghost
+    notes: "`on.click` → action name."
+  divider:
+    kind: leaf
+    description: A horizontal rule. No props.
+  select:
+    kind: leaf
+    description: A dropdown of string options.
+    props:
+      options: string[] (required)
+      placeholder: string
+    binds:
+      value: the selected value (JEXL)
+    notes: "`on.change` → action; the chosen value is available in the action as `{{ $event }}`."
+  table:
+    kind: leaf
+    description: A data table over a bound array of row objects.
+    props:
+      columns: string[] | ColumnSpec[] — column keys/specs
+      row_actions: "[{ label, action, params? }] — per-row action buttons; `{{ row.<field> }}` in params"
+    binds:
+      rows: array of row objects (required)
+  chart:
+    kind: leaf
+    description: A chart (bar/line/area/pie) over a bound array.
+    props:
+      kind: bar | line | area | pie (required)
+      x_key: string — the category/x field (required)
+      series: "[{ id, label }] (required) — one entry per plotted measure"
+      title: string
+    binds:
+      data: array of points (required)
+  form:
+    kind: leaf
+    description: A field-state form with per-field validation and a submit action.
+    props:
+      fields: "[{ id, label, type: text|number|textarea|select, required?, placeholder?, options?(select), validate?, error? }] (required)"
+      submit: "{ label, action } (required) — submit runs `action` with field values exposed as `{{ form.<id> }}`"
+    notes: Form values are LOCAL to the form (the only place with component-local state). `validate` is a JEXL bool with `{{ form.<id> }}` in scope; `error` is the message when it fails or a required field is empty.
+  kpi:
+    kind: leaf
+    description: "A single metric: label, big value, and an optional toned delta chip."
+    props:
+      label: string (required)
+      value: string | number — static; usually via bind.value
+      unit: string
+      delta: string | number
+      deltaTone: positive | negative | neutral
+      hint: string
+    binds:
+      value: the metric value (JEXL)
+  menu:
+    kind: leaf
+    description: A vertical/inline list of action triggers.
+    props:
+      items: "[{ label, action, icon? }] (required) — each fires its action on click"
+      direction: vertical | horizontal (default vertical)
+  agent-chat:
+    kind: leaf
+    description: "Embed the Custom Chat View (Platform-rendered) into the operational surface, bound to the SAME live session as the external chat pane — so the user can chat with the open Agent right inside the use-case. Pair with `chat_view.visible: false` to move the chat into the panel and hide the external one."
+    props:
+      placeholder: string — composer placeholder text
+      height: sm | md | lg | full | <px number> (default md) — chat surface height
+    notes: The chat surface is Platform-controlled; the Expert only references + sizes the node. Use the top-level `chat_view.visible` (JEXL bool) + a `set-state` button to show/hide the external chat pane.
+actions:
+  set-state: '{ type: set-state, target: <state key>, value: "{{ expr }}" } — write a state value.'
+  navigate: "{ type: navigate, screen: <screenId> } — switch the active screen (sets state.activeScreen)."
+  route-call: '{ type: route-call, route, method?: GET|POST, params?: { k: "{{ expr }}" }, on_success?, on_error? } — call a plugin route, then optionally chain another action.'
+  refetch: "{ type: refetch, source: <data key> } — invalidate + refetch a data source."
+  chat-prompt: "{ type: chat-prompt, prompt: string } — seed the chat with a prompt."
+  external-link: "{ type: external-link, route: string } — open an external URL."
+expressions:
+  syntax: Expressions are JEXL inside `{{ }}`. Used in `bind`, `when`, `repeat.for`, data `params`, action `value`/`params`, `computed`, and field `validate`.
+  scope: "Top-level: every data source by name (`{{ orders.items }}`), plus `state`, `computed`, `data`, `row`/`item`/`index` (inside repeat/list), `$event` (inside change handlers), `form.<id>` (inside form validate). Component params are top-level inside that component."
+  transforms: "Whitelisted pipe transforms only: filter(arr,key,val) · map(arr,key) · sum(arr) · count(arr) · formatDate(v) · currency(v) · default(v,fallback). No arbitrary JS, no eval."
+  example: "{{ orders.items | filter('status','pending') | count }}"
+editable_scope:
+  case_a:
+    description: Rename / restyle / reorder / remove. No new data, routes, or files.
+    allowed:
+      - node `props` (label/title/text/level/variant/columns/gap/...)
+      - nav[].label, screen order, node order within a parent `children`
+      - remove a node or nav entry
+    constraints:
+      - No new `type` that is not in node_types
+      - No new data source / route / action
+  case_b:
+    description: Add a node / screen / component that reuses data + routes already in manage.yaml.
+    allowed:
+      - add a node from node_types
+      - add a screen + nav entry
+      - add a component + invoke it
+    constraints:
+      - Any node `type` MUST be in node_types OR a declared component name
+      - Any data `route` / action `route` MUST already appear in manage.yaml
+      - navigate.screen / nav[].screen MUST exist in screens
+      - menu/form/row_action/on actions MUST be declared in `actions`
+  case_c:
+    description: Needs a NEW plugin route or data source.
+    constraints:
+      - Allowed only when no existing route fits — justify in the diff
+      - New plugin handler lives in <plugin>/src/... and MUST pass build + restart + verify BEFORE manage.yaml is touched
+      - Then add the data source / action that calls it

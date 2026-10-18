@@ -1,0 +1,4 @@
+required_env: []
+required_config: []
+channels_to_pair: []
+verification: "GET /api/ws-ai-creative-studio/ai-creative-studio/verify responds."

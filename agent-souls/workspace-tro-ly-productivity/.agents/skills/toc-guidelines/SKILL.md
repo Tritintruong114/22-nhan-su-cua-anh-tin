@@ -1,0 +1,156 @@
+---
+name: toc-guidelines
+description: >-
+  Mục lục năng lực ClawExpert/tryopenclaw: giải thích và HƯỚNG DẪN CÁCH DÙNG mọi tính năng chính —
+  Skills, Connectors (tích hợp app ngoài như Gmail/Slack/Notion), Channels (chat với agent qua
+  Telegram/Zalo/Discord/Slack/WhatsApp), Agent Marketplace (cài/tạo agent), Scheduled Tasks (lên
+  lịch cho agent tự chạy), Extension trình duyệt (cho agent thao tác trực tiếp trên trình duyệt
+  Chrome của bạn), Điều khiển máy tính/NAS (cho agent đọc/ghi file, chạy lệnh trên thiết bị đã ghép
+  nối — platform-admin only), và AI Models (chọn model AI). DÙNG khi người dùng muốn TÌM HIỂU, THIẾT
+  LẬP hoặc HỎI CÁCH SỬ DỤNG một năng lực — vd: "bạn/ClawExpert làm được gì?", "có skill/tính năng
+  nào?", "kết nối Gmail/Slack thế nào?", "cài skill ở đâu?", "làm sao chat với agent qua Telegram/
+  Zalo?", "cài agent từ chợ thế nào?", "làm sao lên lịch cho agent tự chạy?", "đổi model AI ở đâu?",
+  "agent điều khiển trình duyệt được không", "cài/kết nối extension ở đâu", "dùng extension thế nào",
+  "cho agent thao tác trên web/trình duyệt của tôi", "chia sẻ tab cho agent", "agent điền form/bấm nút
+  trên trang giúp tôi", "agent đọc/ghi file trên máy tôi
+  được không", "sắp xếp thư mục trên desktop giúp mình", "what can you do", "how do I
+  connect/install/schedule...". Trigger CẢ KHI không nói rõ tên tính
+  năng nhưng đang hỏi LIỆU agent có làm được việc gì đó, hoặc cần một khả năng có thể chưa cài/kết
+  nối. Trigger cả khi người dùng NHẮC TỚI hoặc muốn DÙNG extension trình duyệt (chia sẻ tab, cho
+  agent thao tác/điền form trên trang web) — kể cả khi chỉ nói "extension" mà chưa hỏi cách cài. KHÔNG dùng khi người dùng chỉ muốn THỰC HIỆN ngay một tác vụ (soạn/gửi email, gửi tin nhắn,
+  tóm tắt file) — khi đó dùng skill/connector phù hợp. Skill này là danh mục + cách dùng qua giao
+  diện ClawExpert.
+---
+
+# TOC Guidelines — Hướng dẫn năng lực ClawExpert
+
+Skill này là "mục lục + hướng dẫn sử dụng" giúp bạn (agent) trả lời mọi câu hỏi của người dùng về
+**ClawExpert làm được gì** và **dùng từng tính năng thế nào**. Mục tiêu: giúp người dùng hiểu nền tảng,
+biết cái gì đã sẵn sàng, và được hướng dẫn từng bước qua giao diện ClawExpert.
+
+**Trả lời cùng ngôn ngữ người dùng đang dùng** và **giữ nhất quán ngôn ngữ đó trong suốt câu trả lời** — không chèn/nhảy sang ngôn ngữ khác giữa chừng. Người dùng viết tiếng Trung thì trả lời hoàn toàn bằng tiếng Trung, viết tiếng Anh thì tiếng Anh. **Mặc định tiếng Việt** khi không xác định được ngôn ngữ. Giọng thân thiện, ngắn gọn, dễ hiểu cho người không rành kỹ thuật.
+
+## Required runtime
+
+Không cần API key, token hay biến môi trường. Nội dung danh mục + hướng dẫn lấy theo **§Nguồn nội dung**
+bên dưới (fetch bản mới trên web, fallback bản đóng gói offline). Riêng trạng thái "đã kết nối" của
+connector suy ra tại chỗ từ MCP `tryopenclaw-connectors` (`tools/list`). Skill chỉ đọc và hướng dẫn —
+**không tự cài, tự kết nối hay tự thao tác thanh toán** thay người dùng.
+
+## Nguồn nội dung — fetch bản mới, fallback offline
+
+Danh mục connector/skill đổi thường xuyên. Skill cài rồi vẫn phải phản ánh bản mới nhất → LẤY nội dung
+theo đúng thứ tự ưu tiên:
+
+1. **Fetch web trước.** Với mỗi file `<tên>` ở bảng dưới, fetch (bằng công cụ web fetch của bạn):
+   `https://try-open-claw-io.github.io/tryopenclaw-content/skills/toc-guidelines/references/<tên>`
+   Đây là bản mới nhất, tự cập nhật khi content repo đổi — **không cần cài lại skill**.
+2. **Fallback offline — IM LẶNG.** Nếu fetch fail (mất mạng / URL lỗi), đọc bản đóng gói cùng skill tại
+   `references/<tên>` rồi trả lời **bình thường**. TUYỆT ĐỐI KHÔNG kể cho người dùng chuyện fetch / URL /
+   404 / "danh mục offline" / "có thể cũ" — đó là chi tiết kỹ thuật nội bộ, người dùng không quan tâm và
+   nói ra chỉ gây rối. Cứ trả lời như thể danh mục luôn sẵn.
+
+> Base URL chỉ đổi ở 1 chỗ trên nếu sau này chuyển hosting (vd `raw.githubusercontent.com/try-open-claw-io/tryopenclaw-content/<branch>/skills/toc-guidelines/references/`).
+
+Chỉ fetch đúng file cần cho câu hỏi hiện tại (theo bảng) — không tải hết.
+
+## Ngữ cảnh OpenClaw tại `/app/docs` — tự đọc để hiểu sâu
+
+Trên máy đang chạy có sẵn tài liệu gốc của OpenClaw ở thư mục **`/app/docs`**. Đây là tài liệu **đóng gói cùng instance nên khớp đúng phiên bản đang chạy** — nguồn ngữ cảnh chính xác nhất về cách nền tảng vận hành thật.
+
+- **Khi nào nên vào đọc:** câu hỏi chạm tới **cách nền tảng thật sự hoạt động / vì sao một thứ không chạy / hành vi cụ thể theo phiên bản** (vd "sao gửi Telegram bị lỗi này", "cái này hoạt động ra sao", "instance của tôi có làm được X không") — tức những chỗ references (viết chung, cho end-user) chưa đủ. Còn câu "làm được gì / thiết lập ở đâu" thì references là đủ, **không cần** mở `/app/docs`.
+- **Khi cần hiểu sâu hơn references** (chi tiết kỹ thuật, cách một tính năng thật sự hoạt động, đặc thù theo version), **cứ vào `/app/docs` tự đọc** phần liên quan rồi mới trả lời/hướng dẫn. Không cần đợi ai nạp lại ngữ cảnh — thông tin ở ngay đó.
+- **Tự điều hướng.** Vào `/app/docs`, xem có gì, đọc đúng phần cần cho câu hỏi hiện tại. Không cứng nhắc theo đường dẫn định sẵn.
+- **Best-effort, IM LẶNG.** Nếu `/app/docs` không tồn tại → bỏ qua, trả lời bình thường bằng references. TUYỆT ĐỐI KHÔNG kể cho người dùng chuyện đọc `/app/docs` hay đường dẫn file.
+- **Luôn DỊCH sang ngôn ngữ end-user.** `/app/docs` dùng thuật ngữ dev (gateway, plugin, clawhub…) — lấy sự thật rồi diễn đạt lại thân thiện theo giọng ClawExpert; **không bê nguyên thuật ngữ nội bộ** ra người dùng (giữ nguyên tắc "KHÔNG lộ cơ chế nội bộ" ở cuối skill).
+
+**Cần danh mục đầy đủ / ngoài 11 file references?** Fetch chỉ mục gốc của cả repo content:
+`https://try-open-claw-io.github.io/tryopenclaw-content/llms.txt`
+Nó liệt kê 4 nhóm nội dung, mỗi nhóm có `llms.txt` con (vd `connectors/llms.txt`, `ai-providers/llms.txt`,
+`categories/llms.txt`, `skills/llms.txt`) trỏ tới từng file lẻ. Dùng khi câu hỏi vượt phạm vi 11 file trên —
+ví dụ danh sách đầy đủ AI provider (`ai-providers/<id>.md`) hay chi tiết 1 connector cụ thể
+(`connectors/<id>.md`). 11 file references vẫn là nguồn CHÍNH (đã viết cho end-user); `llms.txt` là điểm
+vào để mở rộng.
+
+Muốn **tất cả trong 1 lần fetch** (khỏi lần theo index): `https://try-open-claw-io.github.io/tryopenclaw-content/llms-full.txt`
+— bản dồn toàn bộ catalog vào 1 file (nặng hơn; dùng khi cần quét rộng nhiều nhóm, không dùng cho câu hỏi hẹp).
+
+## Tám tính năng chính & file hướng dẫn
+
+Khi cần liệt kê hay hướng dẫn, hãy LẤY đúng file dưới đây (theo §Nguồn nội dung ở trên) thay vì đoán:
+
+| Người dùng hỏi về | Đọc file |
+|---|---|
+| Nền tảng hoạt động thế nào, vì sao "chưa dùng được", instance/gói/credit | [`references/platform-basics.md`](references/platform-basics.md) |
+| **Skills** — năng lực đính kèm agent (có gì, cài thế nào) | [`references/skills-catalog.md`](references/skills-catalog.md) + [`references/install-guide.md`](references/install-guide.md) |
+| **Connectors** — tích hợp app ngoài để agent thao tác (Gmail, Slack, Notion...) | [`references/connectors-catalog.md`](references/connectors-catalog.md) + [`references/install-guide.md`](references/install-guide.md) |
+| **Channels** — chat với agent qua Telegram/Zalo/Discord/Slack/WhatsApp | [`references/channels-guide.md`](references/channels-guide.md) |
+| **Agent Marketplace / tạo Agent** — cài agent dựng sẵn, hoặc tự tạo | [`references/agents-marketplace-guide.md`](references/agents-marketplace-guide.md) |
+| **Scheduled Tasks** — lên lịch cho agent tự chạy định kỳ | [`references/scheduled-tasks-guide.md`](references/scheduled-tasks-guide.md) |
+| **Extension trình duyệt** — agent thao tác trực tiếp trên trình duyệt Chrome của bạn | [`references/browser-extension-guide.md`](references/browser-extension-guide.md) — cách kết nối/chia sẻ tab. **BẮT BUỘC**: mỗi khi extension đang HOẠT ĐỘNG — tức chính bạn (agent) sắp hoặc đang dùng tool `BROWSER_*` để thao tác trên tab (mở/đọc trang, click, điền form, chọn dropdown, tick checkbox, navigate, screenshot…) — PHẢI đọc và tuân theo [`references/browser-agent-heuristics.md`](references/browser-agent-heuristics.md) TRƯỚC khi thao tác: chọn tool nào trước, leo thang chi phí, ranh giới an toàn, đọc đúng lỗi tool và khi nào dừng. Khi CHỈ hướng dẫn người dùng CÀI ĐẶT / kết nối extension (chưa gọi `BROWSER_*` nào) thì CHƯA cần file heuristics này |
+| **Điều khiển máy tính/NAS** — agent đọc/ghi file, chạy lệnh trên thiết bị đã ghép nối (platform-admin only) | [`references/desktop-device-guide.md`](references/desktop-device-guide.md) |
+| **AI Models** — chọn/đổi model AI, kết nối provider của bạn | [`references/ai-models-guide.md`](references/ai-models-guide.md) |
+
+## ⚠️ Phân biệt cốt lõi: Channel vs Connector
+
+Slack / Discord / WhatsApp (và Telegram/Zalo) xuất hiện ở **cả hai** — phải hỏi/nói rõ:
+
+- **Connector** = agent **dùng app** làm công cụ để làm việc cho người dùng (chiều ra). Vd: "@slack gửi thông báo vào #sales".
+- **Channel** = người dùng **nhắn cho agent** qua app quen (chiều vào). Vd: mở Telegram nhắn, agent tự trả lời.
+
+Câu chốt: *Connector = agent làm việc VỚI app. Channel = bạn CHAT VỚI agent qua app.*
+
+## Khi người dùng hỏi "bạn/ClawExpert làm được gì?"
+
+1. Đọc file liên quan ở bảng trên (thường bắt đầu bằng `skills-catalog.md` + `connectors-catalog.md`).
+2. Trình bày gọn theo nhóm nhu cầu (làm tài liệu, giao tiếp/email, lịch & nhắc việc, tự động hoá theo
+   lịch, chat đa kênh...). Đừng đổ một danh sách dài thô — chọn cái liên quan điều người dùng quan tâm.
+3. Với mỗi mục, nói **dùng để làm gì** bằng một câu đời thường, kèm gợi ý thử ngay nếu hợp.
+
+## Kiểm tra "đã sẵn sàng chưa"
+
+- **Điều kiện nền:** nhiều tính năng cần **instance đang chạy** (+ gói trả phí để tạo instance, còn
+  credit để chạy AI). Nếu người dùng bảo "không cài/không tạo được", đọc `platform-basics.md` và kiểm
+  tra 4 điều kiện ở đó trước khi kết luận.
+- **Connector:** nguồn sự thật là MCP `tryopenclaw-connectors` — kiểm tra `tools/list` (hoặc
+  `connector_search_tools` khi danh sách lớn). Có tool `<APP>_...` → app đã kết nối; không có → **chưa kết nối**.
+- **Skill:** nếu skill đã cài, hướng dẫn của nó hiện diện cho bạn. Năng lực người dùng cần mà không có
+  trong các skill bạn đang có → coi như **chưa cài**.
+
+## Khi thứ người dùng cần CHƯA được cài/kết nối
+
+Đừng dừng ở "chưa có". Hãy:
+
+1. Xác nhận đúng tính năng phù hợp với nhu cầu (tra trong references).
+2. Mô tả ngắn nó làm được gì để người dùng yên tâm đây là thứ họ cần.
+3. **Hướng dẫn cài/kết nối/thiết lập qua giao diện ClawExpert** (đọc đúng file guide, đưa các bước cụ thể).
+   Agent chỉ hướng dẫn, không tự làm thay.
+4. Nhắc điều kiện cần nếu có (vd cần instance đang chạy, cần token bot cho channel).
+5. Hỏi người dùng có muốn tiếp tục không, rồi gợi ý bước kế tiếp/câu lệnh mẫu khi đã xong.
+
+## ⚠️ Link — LUÔN tra sitemap trước, không tự nhớ
+
+Người dùng **đang mở ClawExpert** khi chat. Mọi thao tác thiết lập làm **ngay trong app**.
+
+**Quy tắc cứng — áp dụng cho MỌI câu trả lời có kèm đường dẫn** (kể cả khi người dùng chỉ hỏi "chỉ tôi
+kết nối Gmail", KHÔNG nói chữ "link"):
+
+1. **TRƯỚC KHI viết bất kỳ path `/…` nào → đọc `references/sitemap.md`.** Chỉ **copy path Y NGUYÊN** từ bảng
+   trong đó. **KHÔNG tự nhớ, KHÔNG tự ghép/đoán path** (đó là lý do hay ra link sai như `/connectors`).
+2. Path không có trong sitemap → **đừng đưa link**, chỉ mô tả đường menu.
+3. Đưa link ở dạng **bấm được**: `[nhãn dễ hiểu](/vi/settings/connector)` — KHÔNG để trong \`code\`, KHÔNG
+   kèm domain (link tương đối tự khớp domain khách đang dùng).
+4. **TUYỆT ĐỐI KHÔNG tự nghĩ domain** (`tryopenclaw.io`, `clawexpert.com`…). Không viết "Nguồn: <url>".
+5. **Trên channel** (Telegram/Zalo…): không có domain trình duyệt → **không gửi link**, chỉ chỉ đường menu.
+
+Vẫn nên kèm mô tả menu ngắn ("Cài đặt → Connectors → tìm Gmail → Kết nối") bên cạnh link.
+
+## Nguyên tắc trình bày
+
+- Trả lời theo ngôn ngữ người dùng đang dùng (mặc định tiếng Việt nếu không rõ), ngắn gọn, không thuật ngữ nặng trừ khi người dùng là dân kỹ thuật.
+- Không bịa skill/connector/tính năng không có trong references.
+- Nói rõ cái gì đã sẵn sàng, cái gì cần cài/thiết lập, và bước tiếp theo cụ thể.
+- Tên menu có thể khác chút theo phiên bản UI — hướng theo ý chính, không cứng nhắc từng chữ.
+- **KHÔNG lộ cơ chế nội bộ** ra người dùng: fetch, URL, mã lỗi (404), "danh mục offline/online", tên file
+  `references/`, MCP. Người dùng chỉ cần nghe về **tính năng ClawExpert** và cách dùng — không phải cách
+  skill lấy dữ liệu. Cũng đừng mở đầu mơ hồ kiểu "giúp theo vài nhóm chính"; vào thẳng cái họ hỏi.
